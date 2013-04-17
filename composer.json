@@ -1,5 +1,6 @@
 {
     "name": "webriq/gridguyz-facebooklogin",
+    "type": "gridguyz-module",
     "description": "FacebookLogin module for Gridguyz",
     "license": "CC-BY-SA-3.0",
     "keywords": [
@@ -30,6 +31,7 @@
     },
     "require": {
         "php": ">=5.4",
+        "webriq/gridguyz-installer": "*",
         "webriq/gridguyz-core": "*"
     },
     "autoload": {
