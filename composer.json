@@ -31,6 +31,7 @@
     },
     "require": {
         "php": ">=5.4",
+        "zendframework/zendoauth": "2.*",
         "webriq/gridguyz-installer": "*",
         "webriq/gridguyz-core": "*"
     },
