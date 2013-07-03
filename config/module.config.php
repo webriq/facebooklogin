@@ -31,15 +31,15 @@ return array(
                     'textDomain'    => 'facebook',
                     'elements'      => array(
                         'enabled'   => array(
-                            'key'   => 'modules.User.features.loginWith.Facebook.enabled',
+                            'key'   => 'modules.Grid\User.features.loginWith.Facebook.enabled',
                             'type'  => 'ini',
                         ),
                         'appId'     => array(
-                            'key'   => 'modules.FacebookLogin.appId',
+                            'key'   => 'modules.Grid\FacebookLogin.appId',
                             'type'  => 'ini',
                         ),
                         'appSecret' => array(
-                            'key'   => 'modules.FacebookLogin.appSecret',
+                            'key'   => 'modules.Grid\FacebookLogin.appSecret',
                             'type'  => 'ini',
                         ),
                     ),
