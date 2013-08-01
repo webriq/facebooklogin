@@ -27,7 +27,7 @@
     ],
     "support": {
         "email": "dev@megaweb.hu",
-        "source": "https://github.com/webriq/gridguyz-facebooklogin"
+        "source": "https://github.com/gridguyz/facebooklogin"
     },
     "require": {
         "php": ">=5.4",
