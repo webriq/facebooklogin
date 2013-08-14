@@ -42,5 +42,10 @@
         "classmap": [
             "Module.php"
         ]
+    },
+    "extra": {
+        "modules": {
+            "Grid\\FacebookLogin": "Facebook login"
+        }
     }
 }
