@@ -44,6 +44,12 @@
         ]
     },
     "extra": {
+        "display-name": {
+            "en": "Facebook Sign In Package"
+        },
+        "display-description": {
+            "en": "How about letting your visitors to sign in to your website with their Facebook account? You know how prohibitive is to have to deal with so many accounts, so many sign in credentials. Your visitors feel no different. So pamper them, let them access the goodies of your website with a click enjoy those happy campers.\nFurther settings and functions will be available upon the installation of this package."
+        },
         "modules": {
             "Grid\\FacebookLogin": "Facebook login"
         }
