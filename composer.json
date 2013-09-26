@@ -44,6 +44,9 @@
         ]
     },
     "extra": {
+        "display-icon": {
+            "63": "https://raw.github.com/gridguyz/facebooklogin/%reference%/icons/63x63.png"
+        },
         "display-name": {
             "en": "Facebook Sign In Package"
         },
