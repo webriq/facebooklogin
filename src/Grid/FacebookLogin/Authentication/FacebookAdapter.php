@@ -147,7 +147,8 @@ class FacebookAdapter extends StructureAbstract
             );
         }
 
-        $user = $model->findByEmail( $data['email'] );
+        $email  = $data['email'];
+        $user   = $model->findByEmail( $email );
 
         if ( empty( $user ) )
         {
@@ -160,7 +161,7 @@ class FacebookAdapter extends StructureAbstract
             }
 
             $displayName = empty( $data['name'] )
-                ? preg_replace( '/@.*$/', '', $data['email'] )
+                ? preg_replace( '/@.*$/', '', $email )
                 : $data['name'];
 
             $i = 1;
@@ -176,7 +177,7 @@ class FacebookAdapter extends StructureAbstract
                 'confirmed'     => true,
                 'status'        => 'active',
                 'displayName'   => $displayName,
-                'email'         => $data['email'],
+                'email'         => $email,
                 'locale'        => ! empty( $data['language'] )
                                    ? $data['language']
                                    : (string) $this->getServiceLocator()
@@ -187,6 +188,7 @@ class FacebookAdapter extends StructureAbstract
             if ( $user->save() )
             {
                 $registered = true;
+                $user       = $model->findByEmail( $email );
             }
             else
             {
@@ -197,7 +199,7 @@ class FacebookAdapter extends StructureAbstract
             }
         }
 
-        if ( empty( $user->id ) || $user->isBanned() )
+        if ( empty( $user ) || empty( $user->id ) || $user->isBanned() )
         {
             return new Result(
                 Result::FAILURE_CREDENTIAL_INVALID,
@@ -222,7 +224,7 @@ class FacebookAdapter extends StructureAbstract
             empty( $data['link'] )
                 ? 'urn:facebook:' . (
                     empty( $data['id'] )
-                        ? $data['email']
+                        ? $email
                         : $data['id']
                 )
                 : $data['link']
