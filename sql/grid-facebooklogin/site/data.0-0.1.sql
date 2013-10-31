@@ -1,7 +1,7 @@
 -- insert default values for table: module
 
 INSERT INTO "module" ( "module", "enabled" )
-     VALUES ( 'Grid\FacebookLogin', TRUE );
+     VALUES ( 'Grid\FacebookLogin', FALSE );
 
 -- insert default values for table: user_right
 
