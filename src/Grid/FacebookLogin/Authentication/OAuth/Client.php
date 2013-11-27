@@ -98,10 +98,12 @@ class Client implements SiteInfoAwareInterface
 
         if ( empty( $options['redirect_uri'] ) )
         {
-            $options['redirect_uri'] = 'http://'
-                . $this->getSiteInfo()
-                       ->getFulldomain()
-                . $request->getRequestUri();
+            $options['redirect_uri'] = $request->getUri()
+                                               ->getScheme()
+                                     . '://'
+                                     . $this->getSiteInfo()
+                                            ->getFulldomain()
+                                     . $request->getRequestUri();
         }
 
         if ( empty( $code ) )
@@ -146,7 +148,7 @@ class Client implements SiteInfoAwareInterface
 
         $params = null;
         @ parse_str(
-            $str = $client->setMethod( 'GET' )
+            $client->setMethod( 'GET' )
                    ->setUri( static::ACCESS_URI )
                    ->setParameterGet( array(
                        'client_id'      => $options['client_id'],

@@ -28,7 +28,7 @@ return array(
                     ),
                 ),
                 'facebook-login'    => array(
-                    'textDomain'    => 'facebook',
+                    'textDomain'    => 'facebookLogin',
                     'elements'      => array(
                         'enabled'   => array(
                             'key'   => 'modules.Grid\User.features.loginWith.Facebook.enabled',
@@ -136,16 +136,6 @@ return array(
                             ),
                         ),
                     ),
-                ),
-            ),
-        ),
-    ),
-    'view_manager' => array(
-        'head_defaults' => array(
-            'headMeta'  => array(
-                'googleSiteVerification' => array(
-                    'name'      => 'google-site-verification',
-                    'content'   => '',
                 ),
             ),
         ),

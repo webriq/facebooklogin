@@ -71,9 +71,9 @@ class FacebookAdapter extends StructureAbstract
     protected function isRegistrationEnabled()
     {
         $config = $this->getServiceLocator()
-                       ->get( 'Config'  )
-                            [ 'modules' ]
-                            [ 'Grid\User'    ];
+                       ->get( 'Config'    )
+                            [ 'modules'   ]
+                            [ 'Grid\User' ];
 
         return ! empty( $config['features']['registrationEnabled'] );
     }
@@ -85,12 +85,16 @@ class FacebookAdapter extends StructureAbstract
      */
     protected function getCallbackUrl()
     {
-        $service = $this->getServiceLocator();
+        /* @var $siteInfo \Zork\Db\SiteInfo */
+        /* @var $request \Zend\Http\PhpEnvironment\Request */
+        $service    = $this->getServiceLocator();
+        $siteInfo   = $service->get( 'Zork\Db\SiteInfo' );
+        $request    = $service->get( 'Request' );
+        $uri        = $request->getUri();
 
-        return 'http://' . $service->get( 'Zork\Db\SiteInfo' )
-                                   ->getFulldomain()
-                         . $service->get( 'Request' )
-                                   ->getRequestUri();
+        return $uri->getScheme() . '://'
+             . $siteInfo->getFulldomain()
+             . $request->getRequestUri();
     }
 
     /**
@@ -105,8 +109,8 @@ class FacebookAdapter extends StructureAbstract
         $registered = false;
         $model      = $this->getModel();
         $config     = $this->getServiceLocator()
-                           ->get( 'Config' )
-                                [ 'modules' ]
+                           ->get( 'Config'             )
+                                [ 'modules'            ]
                                 [ 'Grid\FacebookLogin' ];
 
         if ( empty( $config['appId'] ) || empty( $config['appSecret'] ) )
@@ -115,7 +119,7 @@ class FacebookAdapter extends StructureAbstract
                 Result::FAILURE_UNCATEGORIZED,
                 null,
                 array(
-                    'appId or appSecret not set',
+                    'appId and/or appSecret not set',
                 )
             );
         }
