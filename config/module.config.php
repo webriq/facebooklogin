@@ -19,64 +19,13 @@ return array(
         ),
     ),
     'modules' => array(
-        'Grid\Core' => array(
-            'settings' => array(
-                'facebook' => array(
-                    'textDomain'    => 'facebook',
-                    'fieldsets'     => array(
-                        'login'     => 'facebook-login',
-                    ),
-                ),
-                'facebook-login'    => array(
-                    'textDomain'    => 'facebookLogin',
-                    'elements'      => array(
-                        'enabled'   => array(
-                            'key'   => 'modules.Grid\User.features.loginWith.Facebook.enabled',
-                            'type'  => 'ini',
-                        ),
-                        'appId'     => array(
-                            'key'   => 'modules.Grid\FacebookLogin.appId',
-                            'type'  => 'ini',
-                        ),
-                        'appSecret' => array(
-                            'key'   => 'modules.Grid\FacebookLogin.appSecret',
-                            'type'  => 'ini',
-                        ),
-                    ),
-                ),
-            ),
-            'navigation'    => array(
-                'settings'  => array(
-                    'pages' => array(
-                        'service'   => array(
-                            'label'         => 'admin.navTop.service',
-                            'textDomain'    => 'admin',
-                            'order'         => 7,
-                            'uri'           => '#',
-                            'parentOnly'    => true,
-                            'pages'         => array(
-                                'facebook'  => array(
-                                    'label'         => 'admin.navTop.settings.facebook',
-                                    'textDomain'    => 'admin',
-                                    'order'         => 2,
-                                    'route'         => 'Grid\Core\Settings\Index',
-                                    'resource'      => 'settings.facebook',
-                                    'privilege'     => 'edit',
-                                    'params'        => array(
-                                        'section'   => 'facebook',
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-            ),
-        ),
         'Grid\User'  => array(
             'features'  => array(
                 'loginWith' => array(
                     'Facebook'  => array(
-                        'enabled'   => false,
+                        'enabled'   => array(
+                            'service'   => 'Grid\Facebook\Model\ApplicationSettings\LoginEnabled',
+                        ),
                         'route'     => 'Grid\User\Authentication\LoginWidth',
                         'options'   => array(
                             'query' => array(
@@ -87,17 +36,9 @@ return array(
                 ),
             ),
         ),
-        'Grid\FacebookLogin' => array(
-            'appId'     => '',
-            'appSecret' => '',
-        ),
     ),
     'form' => array(
-        'Grid\Core\Settings\Facebook' => array(
-            'type'          => 'Grid\Core\Form\Settings',
-            'attributes'    => array(
-                'data-js-type' => 'js.form.fieldsetTabs',
-            ),
+        'Grid\Facebook\ApplicationSettings' => array(
             'fieldsets'     => array(
                 'login'     => array(
                     'spec'  => array(
@@ -113,6 +54,19 @@ return array(
                                     'name'  => 'enabled',
                                     'options'   => array(
                                         'label' => 'facebookLogin.form.settings.enabled',
+                                    ),
+                                ),
+                            ),
+                            'mode'  => array(
+                                'spec'  => array(
+                                    'type'  => 'Zork\Form\Element\Radio',
+                                    'name'  => 'mode',
+                                    'options'   => array(
+                                        'label'     => 'facebookLogin.form.settings.mode',
+                                        'options'   => array(
+                                            'default'   => 'facebookLogin.form.settings.mode.default',
+                                            'specific'  => 'facebookLogin.form.settings.mode.specific',
+                                        ),
                                     ),
                                 ),
                             ),

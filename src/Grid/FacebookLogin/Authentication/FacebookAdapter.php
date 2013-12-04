@@ -108,12 +108,14 @@ class FacebookAdapter extends StructureAbstract
     {
         $registered = false;
         $model      = $this->getModel();
-        $config     = $this->getServiceLocator()
-                           ->get( 'Config'             )
-                                [ 'modules'            ]
-                                [ 'Grid\FacebookLogin' ];
+        $settings   = $this->getServiceLocator()
+                           ->get( 'Grid\Facebook\Model\ApplicationSettings\AdapterFactory' )
+                           ->factory( array( 'application' => 'login' ) );
 
-        if ( empty( $config['appId'] ) || empty( $config['appSecret'] ) )
+        $appId      = $settings->getSetting( 'appId' );
+        $appSecret  = $settings->getSetting( 'appSecret' );
+
+        if ( empty( $appId ) || empty( $appSecret ) )
         {
             return new Result(
                 Result::FAILURE_UNCATEGORIZED,
@@ -133,8 +135,8 @@ class FacebookAdapter extends StructureAbstract
 
         $data = $client->login(
             array(
-                'client_id'     => $config['appId'],
-                'client_secret' => $config['appSecret'],
+                'client_id'     => $appId,
+                'client_secret' => $appSecret,
             ),
             $service->get( 'Request' ),
             $service->get( 'Response' )

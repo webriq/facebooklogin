@@ -3,7 +3,30 @@
 INSERT INTO "module" ( "module", "enabled" )
      VALUES ( 'Grid\FacebookLogin', FALSE );
 
--- insert default values for table: user_right
+-- update default values for table: user_right
 
-INSERT INTO "user_right" ( "label", "group", "resource", "privilege", "optional", "module" )
-     VALUES ( NULL, 'settings', 'settings.facebook', 'edit', TRUE, 'Grid\FacebookLogin' );
+DO LANGUAGE plpgsql $$
+BEGIN
+
+    IF NOT EXISTS ( SELECT *
+                      FROM "user_right"
+                     WHERE "group"      = 'settings'
+                       AND "resource"   = 'settings.facebook'
+                       AND "privilege"  = 'edit' ) THEN
+
+    ELSE
+
+        INSERT INTO "user_right" ( "label", "group", "resource", "privilege", "optional", "module" )
+             VALUES ( NULL, 'settings', 'settings.facebook', 'edit', TRUE, 'Grid\FacebookLogin' );
+
+    ELSE
+
+        UPDATE "user_right"
+           SET "module"     = "_common"."string_set_append"( "module", '|', 'Grid\FacebookLogin' )
+         WHERE "group"      = 'settings'
+           AND "resource"   = 'settings.facebook'
+           AND "privilege"  = 'edit';
+
+    END IF;
+
+END $$;
