@@ -14,8 +14,6 @@ BEGIN
                        AND "resource"   = 'settings.facebook'
                        AND "privilege"  = 'edit' ) THEN
 
-    ELSE
-
         INSERT INTO "user_right" ( "label", "group", "resource", "privilege", "optional", "module" )
              VALUES ( NULL, 'settings', 'settings.facebook', 'edit', TRUE, 'Grid\FacebookLogin' );
 
