@@ -73,6 +73,9 @@ return array(
                                             'specific'  => 'facebookLogin.form.settings.mode.specific',
                                         ),
                                     ),
+                                    'attributes'    => array(
+                                        'value'     => 'default',
+                                    ),
                                 ),
                             ),
                             'appId' => array(
