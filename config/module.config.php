@@ -24,7 +24,7 @@ return array(
                 'loginWith' => array(
                     'Facebook'  => array(
                         'enabled'   => array(
-                            'service'   => 'Grid\Facebook\Model\ApplicationSettings\LoginEnabled',
+                            'service'   => 'Grid\FacebookLogin\Model\ApplicationSettings\LoginEnabled',
                         ),
                         'route'     => 'Grid\User\Authentication\LoginWidth',
                         'options'   => array(
