@@ -12,6 +12,11 @@ return array(
         ),
     ),
     'factory' => array(
+        'Grid\Facebook\Model\ApplicationSettings\AdapterFactory' => array(
+            'adapter'       => array(
+                'login'     => 'Grid\FacebookLogin\Model\ApplicationSettings\LoginAdapter',
+            ),
+        ),
         'Grid\User\Model\Authentication\AdapterFactory' => array(
             'adapter'   => array(
                 'facebook'  => 'Grid\FacebookLogin\Authentication\FacebookAdapter',
