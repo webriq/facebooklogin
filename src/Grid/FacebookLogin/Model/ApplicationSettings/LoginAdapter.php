@@ -15,7 +15,7 @@ class LoginAdapter extends AbstractAdapter
     /**
      * @const string
      */
-    const APPLICATION = 'comment';
+    const APPLICATION = 'login';
 
     /**
      * Facebook login need an `appId` & an `appSecret`
