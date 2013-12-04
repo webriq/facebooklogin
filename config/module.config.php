@@ -18,7 +18,7 @@ return array(
             ),
         ),
         'Grid\User\Model\Authentication\AdapterFactory' => array(
-            'adapter'   => array(
+            'adapter'       => array(
                 'facebook'  => 'Grid\FacebookLogin\Authentication\FacebookAdapter',
             ),
         ),
