@@ -85,6 +85,11 @@ return array(
                                     'options'   => array(
                                         'label' => 'facebookLogin.form.settings.appId',
                                     ),
+                                    'attributes'    => array(
+                                        'data-js-type'                  => 'js.form.displayOnValue',
+                                        'data-js-displayonvalue-field'  => 'comment[mode]',
+                                        'data-js-displayonvalue-value'  => 'specific',
+                                    ),
                                 ),
                             ),
                             'appSecret' => array(
@@ -93,6 +98,11 @@ return array(
                                     'name'  => 'appSecret',
                                     'options'   => array(
                                         'label' => 'facebookLogin.form.settings.appSecret',
+                                    ),
+                                    'attributes'    => array(
+                                        'data-js-type'                  => 'js.form.displayOnValue',
+                                        'data-js-displayonvalue-field'  => 'comment[mode]',
+                                        'data-js-displayonvalue-value'  => 'specific',
                                     ),
                                 ),
                             ),
