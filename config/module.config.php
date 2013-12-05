@@ -87,7 +87,7 @@ return array(
                                     ),
                                     'attributes'    => array(
                                         'data-js-type'                  => 'js.form.displayOnValue',
-                                        'data-js-displayonvalue-field'  => 'comment[mode]',
+                                        'data-js-displayonvalue-field'  => 'login[mode]',
                                         'data-js-displayonvalue-value'  => 'specific',
                                     ),
                                 ),
@@ -101,7 +101,7 @@ return array(
                                     ),
                                     'attributes'    => array(
                                         'data-js-type'                  => 'js.form.displayOnValue',
-                                        'data-js-displayonvalue-field'  => 'comment[mode]',
+                                        'data-js-displayonvalue-field'  => 'login[mode]',
                                         'data-js-displayonvalue-value'  => 'specific',
                                     ),
                                 ),
