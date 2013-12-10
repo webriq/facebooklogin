@@ -58,7 +58,8 @@ return array(
                                     'type'  => 'Zork\Form\Element\Checkbox',
                                     'name'  => 'enabled',
                                     'options'   => array(
-                                        'label' => 'facebookLogin.form.settings.enabled',
+                                        'label'         => false,
+                                        'label_enable'  => 'facebookLogin.form.settings.enabled',
                                     ),
                                 ),
                             ),
