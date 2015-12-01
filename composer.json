@@ -1,40 +1,34 @@
 {
-    "name": "gridguyz/facebooklogin",
-    "type": "gridguyz-module",
-    "description": "FacebookLogin module for Gridguyz CMS",
-    "license": "CC-BY-SA-3.0",
+    "name": "webriqcms/facebooklogin",
+    "type": "webriqcms-module",
+    "description": "FacebookLogin module for WebriQ CMS",
+    "license": "BSD-3-Clause",
     "keywords": [
-        "gridguyz",
+        "webriqcms",
         "module",
         "facebook-login",
         "facebook",
         "login"
     ],
-    "homepage": "http://gridguyz.com/",
+    "homepage": "http://webriq.com/",
     "authors": [
         {
-            "name": "Mihály Farkas",
-            "email": "mihaly.farkas@megaweb.hu",
-            "homepage": "http://gridguyz.com/",
-            "role": "Developer"
-        },
-        {
-            "name": "David Pozsar",
-            "email": "david.pozsar@megaweb.hu",
-            "homepage": "http://gridguyz.com/",
-            "role": "Developer"
+            "name": "WebriQ Dev Team",
+            "email": "info@webriq.com",
+            "homepage": "http://webriq.com/",
+            "role": "Development Team"
         }
     ],
     "support": {
-        "email": "dev@megaweb.hu",
-        "source": "https://github.com/gridguyz/facebooklogin"
+        "email": "info@webriq.com",
+        "source": "https://github.com/webriq/facebooklogin"
     },
     "require": {
         "php": ">=5.4",
         "zendframework/zendoauth": "2.*",
-        "gridguyz/module-installer": "*",
-        "gridguyz/core": "*",
-        "gridguyz/facebook": "*"
+        "webriqcms/module-installer": "*",
+        "webriqcms/core": "*",
+        "webriqcms/facebook": "*"
     },
     "autoload": {
         "psr-0": {
@@ -46,7 +40,7 @@
     },
     "extra": {
         "display-icon": {
-            "63": "https://raw.github.com/gridguyz/facebooklogin/%reference%/icons/63x63.png"
+            "63": "https://raw.github.com/webriq/facebooklogin/%reference%/icons/63x63.png"
         },
         "display-name": {
             "en": "Facebook Sign On"
